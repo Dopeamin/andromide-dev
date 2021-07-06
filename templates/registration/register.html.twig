@@ -13,15 +13,15 @@
         </div>
         <div class="container">
             <div class="left">
-                {{form_row(registrationForm.first_name)}}
-                {{form_row(registrationForm.last_name)}}
+                {{form_row(registrationForm.first_name,{'label':'Prénom'})}}
+                {{form_row(registrationForm.last_name,{'label':'Nom'})}}
                 {{form_row(registrationForm.email)}}
-                {{form_row(registrationForm.plainPassword)}}
+                {{form_row(registrationForm.plainPassword,{'label':'Mot de Passe'})}}
             </div>
             <div class="right">
-                {{form_row(registrationForm.phone)}}
-                {{form_row(registrationForm.VTC_card_number)}}
-                {{form_row(registrationForm.VTC_expired_date)}}
+                {{form_row(registrationForm.phone,{'label':'Numéro de téléphone'})}}
+                {{form_row(registrationForm.VTC_card_number,{'label':'Numéro de carte VTC'})}}
+                {{form_row(registrationForm.VTC_expired_date,{'label':"Date d'expiration de VTC"})}}
             </div>
         </div>
         {{form_end(registrationForm)}}
