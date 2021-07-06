@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('register.css')}}">
+{% endblock %}
+{% block body %}
+    {{parent()}}
+    <div class="form-wrapper">
+        {{form_start(registrationForm)}}
+        <div>
+            {{form_errors(registrationForm,{'attr':{'class':'error'}})}}
+        </div>
+        <div class="container">
+            <div class="left">
+                {{form_row(registrationForm.first_name)}}
+                {{form_row(registrationForm.last_name)}}
+                {{form_row(registrationForm.email)}}
+                {{form_row(registrationForm.plainPassword)}}
+            </div>
+            <div class="right">
+                {{form_row(registrationForm.phone)}}
+                {{form_row(registrationForm.VTC_card_number)}}
+                {{form_row(registrationForm.VTC_expired_date)}}
+            </div>
+        </div>
+        {{form_end(registrationForm)}}
+    </div>
+{% endblock %}

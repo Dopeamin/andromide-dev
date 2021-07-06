@@ -1,0 +1,26 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}{{parent()}}{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="login.css">
+{% endblock %}
+{% block body %}
+{% if error %}
+        <div class="error">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+<div class="form-wrapper">
+    <form action="{{path('login')}}" method="post">
+        <div class="errors"></div>
+        <div class="row">
+            <input type="email" name="email" placeholder="Email" value="{{last_username}}"required/>
+        </div>
+        <div class="row">
+            <input type="password" id="password" name="_password" placeholder="Mot de passe" required/>
+        </div>
+        <button type="submit">login</button>
+    </form>
+    <a href="#">Mot de passe oubliéé ?</a>
+    <h3>Vous n’êtes pas encore enregistré ? <a href="{{path('register')}}">Devenir partenaire</a></h3>
+</div>
+{% endblock %}
