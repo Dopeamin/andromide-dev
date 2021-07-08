@@ -1,0 +1,56 @@
+{% extends "authentification/navigation.html.twig" %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{asset('register.css')}}">
+{% endblock %}
+{% block body %}
+    <style>
+        .left{
+            justify-content:left !important;
+            margin:auto;
+            width:550px;
+            color:black !important;
+            margin-bottom:50px;
+        }
+        .left a{
+            color:black !important;
+            font-weight:700;
+        }
+        .left label{
+            margin:20px;
+            font-size:1.3rem;
+            font-weight:700;
+            color:blue;
+        }
+    </style>
+    {{parent()}}
+    <div class="form-wrapper">
+        <div class="container left">
+            <label>Nombre de véhicule</label>
+            <select name="cars" id="cars" placeholder="Selectionner">
+                <option value="">Selectionner</option>
+                <option value="one">J'ai un seul véhicule</option>
+                <option value="many">J'ai plusieurs véhicules</option>
+            </select>
+        </div>
+        {{form_start(form)}}
+        {% if form_errors(form) %}
+         <div class="error">
+            {{form_errors(form)}}
+        </div>
+        {% endif %}
+        
+        <div >
+                <div class="container">
+                {{form_row(form.marque,{'label':'Marque'})}}
+                {{form_row(form.modele,{'label':'Modéle'})}}
+                </div>
+                <div class="container">
+                {{form_row(form.couleur,{'label':'Couleur'})}}
+                {{form_row(form.annee,{'label':'Année'})}}
+                </div>
+                <div class="container">{{form_row(form.immatricule,{'label':'Immatriculation'})}}</div>
+        </div>
+        <div class="container left"><a href="#">Ajouter un véhicule &#43;</a></div>
+        {{form_end(form)}}
+    </div>
+{% endblock %}

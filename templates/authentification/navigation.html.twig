@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <style>
+        .containerr{
+            margin:auto;
+            width:1000px;
+            display:flex;
+            justify-content:center;
+            margin-bottom:30px;
+        }
+        .element{
+            padding:10px;
+            border:2px solid black;
+            width:200px;
+            text-align:center;
+        }
+    </style>
+    <div class="containerr">
+        <div class="element">
+        {% if (app.request.attributes.get('_route') == 'registerCompany' or app.request.attributes.get('_route') == 'registerDocument') %}
+            <h2 style="color:blue">Société</h2>
+        {% else %}
+            <h2>Société</h2>
+        {% endif %}
+        
+            
+        </div>
+        <div class="element">
+            {% if app.request.attributes.get('_route') == 'registerCar' %}
+                <h2 style="color:blue">Véhicule</h2>
+            {% else %}
+                <h2>Véhicule</h2>
+            {% endif %}
+        </div>
+        <div class="element">
+            {% if app.request.attributes.get('_route') == 'registerchauffeur' %}
+                <h2 style="color:blue">Chauffeur</h2>
+            {% else %}
+                <h2>Chauffeur</h2>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

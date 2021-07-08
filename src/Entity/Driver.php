@@ -62,6 +62,12 @@ class Driver implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $VTC_expired_date;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Company::class, inversedBy="drivers")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $company = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -207,6 +213,18 @@ class Driver implements UserInterface, PasswordAuthenticatedUserInterface
     public function setVTCExpiredDate(\DateTimeInterface $VTC_expired_date): self
     {
         $this->VTC_expired_date = $VTC_expired_date;
+
+        return $this;
+    }
+
+    public function getCompany(): ?Company
+    {
+        return $this->company;
+    }
+
+    public function setCompany(?Company $company): self
+    {
+        $this->company = $company;
 
         return $this;
     }
