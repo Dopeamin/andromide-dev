@@ -100,7 +100,7 @@ class AuthentificationController extends AbstractController
             $entityManager->flush();
             $this->container->get('session')->invalidate();
             $this->container->get('session')->set('companyanddocument', $company);
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('registerCar');
         }else if($form->isSubmitted() && !$form->isValid()){
             return $this->redirectToRoute('login');
         }
